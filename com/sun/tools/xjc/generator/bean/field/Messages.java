@@ -1,0 +1,28 @@
+// 
+// Decompiled by Procyon v0.5.30
+// 
+
+package com.sun.tools.xjc.generator.bean.field;
+
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
+
+enum Messages
+{
+    DEFAULT_GETTER_JAVADOC, 
+    DEFAULT_SETTER_JAVADOC;
+    
+    private static final ResourceBundle rb;
+    
+    public String toString() {
+        return this.format(new Object[0]);
+    }
+    
+    public String format(final Object... args) {
+        return MessageFormat.format(Messages.rb.getString(this.name()), args);
+    }
+    
+    static {
+        rb = ResourceBundle.getBundle(Messages.class.getName().substring(0, Messages.class.getName().lastIndexOf(46)) + ".MessageBundle");
+    }
+}
